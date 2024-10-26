@@ -1,6 +1,7 @@
 from pdfminer.high_level import extract_text
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
+import io
 
 
 class Parser:
@@ -12,8 +13,16 @@ class Parser:
             for fmt in self._allowed_formats
         }
 
+    @staticmethod
+    def filter_symbols(text: str):
+        def filter_func(char):
+            return ord(char) < 255 or ord("а") <= ord(char) <= ord("я") or ord("А") <= ord(char) <= ord("Я")
+
+        return ''.join(filter(filter_func, text))
+
     def parse_pdf(self):
-        return extract_text(self._file.)
+        pdf_text = extract_text(io.BytesIO(self._file.read()))
+        return self.filter_symbols(pdf_text)
 
     def parse_txt(self):
         return self._file.read()
