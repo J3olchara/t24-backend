@@ -1,28 +1,28 @@
 version: '3.8'
 
 services:
-  web:
-    env_file:
-      - env/dev.env
-      - env/dev.db.env
-    build:
-      context: .
-      dockerfile: ./t24/dev.Dockerfile
-    command: python3 t24/manage.py runserver 0.0.0.0:8080
-    ports:
-      - "8080:8080"
-    volumes:
-      - .:/app
-    depends_on:
-      - db
-#  db:
-#    image: postgres:15.3-alpine
-#    volumes:
-#      - postgres-data:/var/lib/postgresql/data
-#    ports:
-#      - "5432:5432"
+#  web:
 #    env_file:
+#      - env/dev.env
 #      - env/dev.db.env
+#    build:
+#      context: .
+#      dockerfile: ./t24/dev.Dockerfile
+#    command: python3 t24/manage.py runserver 0.0.0.0:8080
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      - .:/app
+#    depends_on:
+#      - db
+  db:
+    image: postgres:15.3-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file:
+      - env/dev.db.env
 
 volumes:
   postgres-data:
