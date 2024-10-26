@@ -8,6 +8,8 @@
 
 > pip install -r requirements.txt
 
+> ./manage.py migrate
+
 > ./manage.py runserver localhost:8080
 
 # сервер доступен по localhost:8080
