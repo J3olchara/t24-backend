@@ -1,9 +1,13 @@
 from pdfminer.high_level import extract_text
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
-import io
-
+from django.core.files.base import ContentFile
+from .tensors import audio
 from .tensors import model
+
+from uuid import uuid4
+import io
+import os
 
 
 class Parser:
@@ -35,7 +39,7 @@ class Parser:
         return extract_text(io.BytesIO(self._file.read()))
 
     def parse_txt(self):
-        return self._file.read()
+        return self._file.read().decode()
 
     @property
     def parsed(self):
@@ -58,7 +62,10 @@ class Generator:
 
     @property
     def voice(self):
-        file_path = settings.STATIC_ROOT
-        return str((file_path / "eng.mp3").relative_to(settings.BASE_DIR))
-
-
+        filename = f"{uuid4()}.wav"
+        file_path = settings.MEDIA_ROOT / filename
+        audio.generate(file_path, self._text)
+        with open(file_path, 'rb') as wav:
+            file = ContentFile(content=wav.read(), name=filename)
+        os.remove(file_path)
+        return file

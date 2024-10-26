@@ -1,7 +1,12 @@
+import ssl
+
 from rest_framework import serializers, exceptions
 
 from .models import Voice
 from .utils import Parser, Generator
+
+
+ssl._create_default_https_context = ssl._create_stdlib_context
 
 
 class VoiceSerializer(serializers.ModelSerializer):

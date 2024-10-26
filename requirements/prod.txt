@@ -1,7 +1,6 @@
 torch
 Django
 djangorestframework
-tika
 psycopg2-binary
 pdfminer.six
 langchain_community
@@ -9,3 +8,4 @@ transformers
 torchvision
 bitsandbytes
 accelerate
+omegaconf
