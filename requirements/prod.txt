@@ -1,5 +1,11 @@
-Django==5.1.*
-djangorestframework==3.15.*
-tika==2.6.*
+torch
+Django
+djangorestframework
+tika
 psycopg2-binary
 pdfminer.six
+langchain_community
+transformers
+torchvision
+bitsandbytes
+accelerate

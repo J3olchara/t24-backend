@@ -28,10 +28,10 @@ class VoiceSerializer(serializers.ModelSerializer):
         return super().to_internal_value(data)
 
     def to_representation(self, instance):
-        data = super().to_representation(instance)
-        data['short_text'] = Generator(instance.text).short
-        data['voice'] = Generator(data['short_text']).voice
-        return data
+        instance.short_text = Generator(instance.text).short
+        instance.voice = Generator(instance.short_text).voice
+        instance.save()
+        return super().to_representation(instance)
 
     class Meta:
         model = Voice
