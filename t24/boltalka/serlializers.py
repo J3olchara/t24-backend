@@ -1,6 +1,7 @@
 import ssl
 
 from rest_framework import serializers, exceptions
+from rest_framework.response import Response
 
 from .models import Voice
 from .utils import Parser, Generator
@@ -35,6 +36,7 @@ class VoiceSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         instance.short_text = Generator(instance.text).short
         instance.voice = Generator(instance.short_text).voice
+        instance.short_text = instance.short_text.split("Диалог:")[1:]
         instance.save()
         return super().to_representation(instance)
 
