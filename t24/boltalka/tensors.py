@@ -56,6 +56,7 @@ class Audio:
         language = 'ru'
         model_id = 'v4_ru'
         device = torch.device('cuda')
+        # device = torch.device('cpu')
 
         self.model, example_text = torch.hub.load(
             repo_or_dir='snakers4/silero-models',
@@ -97,5 +98,5 @@ class Audio:
         return audio
 
 
-# model = Mistral()
+model = Mistral()
 audio = Audio()
