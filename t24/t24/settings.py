@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'corsheaders',
+    'corsheaders',
     'boltalka'
 ]
 
@@ -43,7 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 't24.urls'
@@ -131,38 +131,38 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
-# CORS_ALLOW_METHODS = [
-#     "DELETE",
-#     "GET",
-#     "OPTIONS",
-#     "PATCH",
-#     "POST",
-#     "PUT",
-# ]
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
-# CORS_ALLOW_HEADERS = [
-#     "accept",
-#     "accept-encoding",
-#     "accept-language",
-#     "connection",
-#     "content-length",
-#     "content-type",
-#     "host",
-#     "origin",
-#     "referer",
-#     "sec-ch-ua",
-#     "sec-ch-ua-mobile",
-#     "sec-ch-ua-platform",
-#     "sec-fetch-dest",
-#     "sec-fetch-mode",
-#     "sec-fetch-site",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with",
-#     "content-disposition",
-#     "cookie",
-#     "pragma",
-#     "content-length",
-# ]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "accept-language",
+    "connection",
+    "content-length",
+    "content-type",
+    "host",
+    "origin",
+    "referer",
+    "sec-ch-ua",
+    "sec-ch-ua-mobile",
+    "sec-ch-ua-platform",
+    "sec-fetch-dest",
+    "sec-fetch-mode",
+    "sec-fetch-site",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "content-disposition",
+    "cookie",
+    "pragma",
+    "content-length",
+]

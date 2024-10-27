@@ -28,7 +28,11 @@ class VoiceSerializer(serializers.ModelSerializer):
         return super().to_internal_value(data)
 
     def to_representation(self, instance):
-        instance.short_text = Generator(instance.text).short.split("Диалог:")[1]
+        text_splitted = Generator(instance.text).short.split("Диалог:")
+        instance.short_text = text_splitted[0]
+        if len(text_splitted) >= 2:
+            instance.short_text = text_splitted[1]
+
         # instance.short_text = Generator(instance.text).short
         instance.voice = Generator(instance.short_text).voice
         instance.save()
