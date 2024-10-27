@@ -1,12 +1,10 @@
-import time
-from logger import logger
+import logging as logger
 from langchain_community.llms import HuggingFacePipeline
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
 from langchain_core.prompts import PromptTemplate
 import torch
 from omegaconf import OmegaConf
 from scipy.io.wavfile import write
-# from IPython.display import Audio, display
 
 template = """В мире, где информация растет быстрее, чем мы успеваем ее переработать, вопросы подростков остаются одними из самых важных. Они хотят понять окружающий мир, но часто не могут пробиться сквозь плотные, скучные или сложные тексты статей и новостей. Как рассказать им о сложных вещах простым языком, без потери смысла? 
 Представьте, что где-то сидит отец с дочерью-подростком. Она видит в ленте новость или статью и хочет понять, о чем же на самом деле идет речь. Он, глядя на нее, рассказывает: понятным, доступным и интересным языком. Она задает вопросы — острые, смелые, иногда неожиданные. Он отвечает — развернуто и честно, с терпением и заботой. Так создается диалог, который становится не просто обменом информации, а мостом между поколениями, между текстом и теми, кто хочет его понять.
@@ -99,5 +97,5 @@ class Audio:
         return audio
 
 
-model = Mistral()
+# model = Mistral()
 audio = Audio()
