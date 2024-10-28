@@ -10,3 +10,4 @@ bitsandbytes
 accelerate
 omegaconf
 django-cors-headers
+scipy
