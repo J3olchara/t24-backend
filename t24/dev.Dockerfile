@@ -6,7 +6,7 @@ COPY ./t24 .
 COPY ./requirements /app/requirements
 RUN apt-get update
 RUN apt-get install -y python3
-RUN apt-get install python3.10-venv
+RUN apt-get install -y python3.10-venv
 RUN python3 -m venv venv
 RUN venv/bin/python -m pip install --upgrade pip setuptools
 RUN venv/bin/python -m pip install --upgrade pip
