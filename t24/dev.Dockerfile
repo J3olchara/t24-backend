@@ -1,6 +1,7 @@
 FROM python:3.12.7-alpine
 ENV PYTHONUNBUFFERED=1
 
+RUN #apt install gcc
 WORKDIR /app/
 COPY ./t24 .
 COPY ./requirements /app/requirements

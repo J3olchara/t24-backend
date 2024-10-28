@@ -9,3 +9,4 @@ torchvision
 bitsandbytes
 accelerate
 omegaconf
+corsheaders
