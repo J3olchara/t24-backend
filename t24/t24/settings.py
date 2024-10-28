@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import os
+import logging
 import ssl
 
 
@@ -180,6 +181,6 @@ LOGGING = {
     },
     "root": {
         "handlers": ["console"],
-        "level": "WARNING",
+        "level": logging.WARNING,
     },
 }
