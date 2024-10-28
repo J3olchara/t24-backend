@@ -2,8 +2,6 @@ version: '3.8'
 
 services:
   web:
-    mem_reservation:
-      8g
     env_file:
       - env/dev.env
       - env/dev.db.env
@@ -21,6 +19,8 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+          memory:
+            8g
 #    depends_on:
 #      - db
 #  db:
