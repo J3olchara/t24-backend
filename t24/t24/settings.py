@@ -184,3 +184,5 @@ LOGGING = {
         "level": logging.WARNING,
     },
 }
+
+logging.info("hello")
