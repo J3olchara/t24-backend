@@ -5,7 +5,8 @@ RUN #apt install gcc
 WORKDIR /app/
 COPY ./t24 .
 COPY ./requirements /app/requirements
-RUN apt-get install python3
+RUN apt-get update
+RUN apt-get install -y python3
 RUN python -m venv venv
 RUN venv/bin/python -m pip install --upgrade pip setuptools
 RUN venv/bin/python -m pip install --upgrade pip
