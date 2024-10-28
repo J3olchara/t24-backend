@@ -9,4 +9,4 @@ torchvision
 bitsandbytes
 accelerate
 omegaconf
-corsheaders
+django-cors-headers
