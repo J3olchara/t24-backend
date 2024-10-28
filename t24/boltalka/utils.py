@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.files.base import ContentFile
 from .tensors import audio
-from .tensors import model
+# from .tensors import model
 
 from uuid import uuid4
 import io
@@ -58,8 +58,8 @@ class Generator:
 
     @property
     def short(self) -> str:
-        return model.get_answer(self._text)
-        # return self._text
+        # return model.get_answer(self._text)
+        return self._text
 
     @property
     def voice(self):

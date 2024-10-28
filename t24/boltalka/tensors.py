@@ -55,8 +55,8 @@ class Audio:
 
         language = 'ru'
         model_id = 'v4_ru'
-        device = torch.device('cuda')
-        # device = torch.device('cpu')
+        # device = torch.device('cuda')
+        device = torch.device('cpu')
 
         self.model, example_text = torch.hub.load(
             repo_or_dir='snakers4/silero-models',
@@ -82,7 +82,8 @@ class Audio:
             # audio(model, 'baya', i[0])
             result = torch.cat((result, self.audio(self.model, 'baya', i[0])), dim=0)
             # audio(model, 'aidar', i[1])
-            result = torch.cat((result, self.audio(self.model, 'eugene', i[1])), dim=0)
+            if len(i) >= 2:
+                result = torch.cat((result, self.audio(self.model, 'eugene', i[1])), dim=0)
 
         return write(save_dir, self.sample_rate, result.cpu().numpy())
 
@@ -98,5 +99,5 @@ class Audio:
         return audio
 
 
-model = Mistral()
+# model = Mistral()
 audio = Audio()
