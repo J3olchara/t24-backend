@@ -5,7 +5,7 @@ RUN #apt install gcc
 WORKDIR /app/
 COPY ./t24 .
 COPY ./requirements /app/requirements
-RUN apt-get install python12.7
+RUN apt-get install python3-dev
 RUN python -m venv venv
 RUN venv/bin/python -m pip install --upgrade pip setuptools
 RUN venv/bin/python -m pip install --upgrade pip
