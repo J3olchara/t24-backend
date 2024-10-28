@@ -33,7 +33,7 @@ class VoiceSerializer(serializers.ModelSerializer):
         if len(text_splitted) >= 2:
             instance.short_text = text_splitted[1]
 
-        # instance.short_text = Generator(instance.text).short
+        instance.short_text = Generator(instance.text).short
         instance.voice = Generator(instance.short_text).voice
         instance.save()
         return super().to_representation(instance)
