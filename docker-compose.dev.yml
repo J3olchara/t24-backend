@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    image: nvidia/cuda:12.3.1-base-ubuntu22.04
     mem_reservation:
       8g
     env_file:
@@ -10,11 +11,17 @@ services:
     build:
       context: .
       dockerfile: ./t24/dev.Dockerfile
-#    command: python3 t24/manage.py runserver 0.0.0.0:8080
     ports:
       - "8080:8080"
     volumes:
       - .:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 #    depends_on:
 #      - db
 #  db:
