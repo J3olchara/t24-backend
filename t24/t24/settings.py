@@ -181,7 +181,7 @@ LOGGING = {
     },
     "root": {
         "handlers": ["console"],
-        "level": logging.WARNING,
+        "level": logging.INFO,
     },
 }
 
