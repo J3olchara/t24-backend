@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   web:
-    image: nvidia/cuda:12.3.1-base-ubuntu22.04
     mem_reservation:
       8g
     env_file:
@@ -15,13 +14,10 @@ services:
       - "8080:8080"
     volumes:
       - .:/app
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    devices:
+      - driver: nvidia
+        count: 1
+        capabilities: [ gpu ]
 #    depends_on:
 #      - db
 #  db:

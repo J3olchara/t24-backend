@@ -1,4 +1,4 @@
-FROM python:3.12.7-alpine
+FROM nvidia/cuda:12.3.1-base-ubuntu22.04
 ENV PYTHONUNBUFFERED=1
 
 RUN #apt install gcc
