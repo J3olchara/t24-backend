@@ -14,10 +14,13 @@ services:
       - "8080:8080"
     volumes:
       - .:/app
-    devices:
-      - driver: nvidia
-        count: 1
-        capabilities: [ gpu ]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 #    depends_on:
 #      - db
 #  db:
