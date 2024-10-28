@@ -99,5 +99,5 @@ class Audio:
         return audio
 
 
-# model = Mistral()
+model = Mistral()
 audio = Audio()
